@@ -1,0 +1,21 @@
+{
+  "name": "help-scout-widget",
+  "version": "0.1.0",
+  "homepage": "https://github.com/appcues/help-scout-widget",
+  "authors": [
+    "Jonathan Kim <me@jonathan-kim.com>"
+  ],
+  "main": "helpscout.js",
+  "moduleType": [
+    "amd",
+    "globals"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
