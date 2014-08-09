@@ -34,7 +34,7 @@ define ->
             <div class="hs-widget-icon">?</div>
             <form class="hs-widget-form">
                 <h4>Send us a message</h4>
-                <input type="hidden" name="email" value="">
+                <input type="email" name="email" value="" placeholder="email"/>
                 <textarea name="body" placeholder="Hey there! I need help with..."></textarea>
                 <button type="submit">Let us know</button>
             </form>
