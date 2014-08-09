@@ -607,7 +607,7 @@ define("../almond", function(){});
         return this;
       }
 
-      WidgetView.prototype.template = "<div class=\"hs-widget-icon\">?</div>\n<form class=\"hs-widget-form\">\n    <h4>Send us a message</h4>\n    <input type=\"email\" name=\"email\" value=\"\" placeholder=\"email\"/>\n    <textarea name=\"body\" placeholder=\"Hey there! I need help with...\"></textarea>\n    <button type=\"submit\">Let us know</button>\n</form>\n<div class=\"hs-widget-form-success\">\n    <p>Yay, you did it!</p>\n</div>";
+      WidgetView.prototype.template = "<div class=\"hs-widget-icon\">?</div>\n<div class=\"hs-widget-form-container\">\n    <form class=\"hs-widget-form\">\n        <h4>Send us a message</h4>\n        <p>We love hearing from you.</p>\n        <input class=\"hs-widget-form-control\" type=\"email\" name=\"email\" value=\"\" placeholder=\"Your email\" required autofocus/>\n        <textarea class=\"hs-widget-form-control\" name=\"body\" placeholder=\"Hey there! I need help with...\" required></textarea>\n        <div class=\"hs-widget-btns\">\n            <button class=\"hs-widget-btn\" type=\"submit\">Let us know</button>\n        </div>\n    </form>\n    <div class=\"hs-widget-form-success\">\n        <br><br><br><br>\n        <h4>We've got you covered.</h4>\n        <p>One of us will reach out to you by email or phone shortly. Just hang tight!</p>\n    </div>\n</div>";
 
       WidgetView.prototype.toggle = function() {
         if (this.el.classList.contains('hs-widget-active')) {
@@ -638,6 +638,10 @@ define("../almond", function(){});
 
       WidgetView.prototype.onSubmit = function(data) {};
 
+      WidgetView.prototype.showSuccess = function() {
+        return this.el.classList.add('hs-widget-form-success-active');
+      };
+
       WidgetView.prototype.remove = function() {
         return this.el.remove();
       };
@@ -661,13 +665,15 @@ define("../almond", function(){});
           var view;
           view = new WidgetView(options);
           view.onSubmit = function(data) {
-            return api.create({
+            var req;
+            req = api.create({
               mailboxId: options.mailboxId,
               customer: {
                 email: data.email
               },
               body: data.body
             });
+            return req.then(this.showSuccess.bind(this));
           };
           views.push(view);
           return view;

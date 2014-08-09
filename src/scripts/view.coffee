@@ -32,14 +32,21 @@ define ->
 
         template: """
             <div class="hs-widget-icon">?</div>
-            <form class="hs-widget-form">
-                <h4>Send us a message</h4>
-                <input type="email" name="email" value="" placeholder="email"/>
-                <textarea name="body" placeholder="Hey there! I need help with..."></textarea>
-                <button type="submit">Let us know</button>
-            </form>
-            <div class="hs-widget-form-success">
-                <p>Yay, you did it!</p>
+            <div class="hs-widget-form-container">
+                <form class="hs-widget-form">
+                    <h4>Send us a message</h4>
+                    <p>We love hearing from you.</p>
+                    <input class="hs-widget-form-control" type="email" name="email" value="" placeholder="Your email" required autofocus/>
+                    <textarea class="hs-widget-form-control" name="body" placeholder="Hey there! I need help with..." required></textarea>
+                    <div class="hs-widget-btns">
+                        <button class="hs-widget-btn" type="submit">Let us know</button>
+                    </div>
+                </form>
+                <div class="hs-widget-form-success">
+                    <br><br><br><br>
+                    <h4>We've got you covered.</h4>
+                    <p>One of us will reach out to you by email or phone shortly. Just hang tight!</p>
+                </div>
             </div>
         """
 
@@ -67,6 +74,9 @@ define ->
 
         # Outlet to publish events to subscribers.
         onSubmit: (data) ->
+
+        showSuccess: ->
+            @el.classList.add 'hs-widget-form-success-active'
 
         remove: ->
             # NOTE: We could be extra nice and remove event listeners here, but

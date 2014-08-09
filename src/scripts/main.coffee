@@ -17,10 +17,12 @@ define [
 
                 # TODO: Implement custom events emitter.
                 view.onSubmit = (data) ->
-                    api.create
+                    req = api.create
                         mailboxId: options.mailboxId
                         customer: {email: data.email}
                         body: data.body
+
+                    req.then @showSuccess.bind(@)
 
                 views.push view
                 return view
