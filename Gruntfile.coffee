@@ -1,5 +1,5 @@
 module.exports = (grunt) ->
-    grunt.registerTask 'build', ['coffee', 'requirejs']
+    grunt.registerTask 'build', ['coffee', 'stylus', 'requirejs']
     grunt.registerTask 'default', 'build'
 
     grunt.initConfig
@@ -35,8 +35,12 @@ module.exports = (grunt) ->
             coffee:
                 files: '<%= coffee.compile.src %>'
                 tasks: ['coffee', 'requirejs']
+            stylus:
+                files: '<%= stylus.compile.src %>'
+                tasks: ['stylus']
 
 
     grunt.loadNpmTasks 'grunt-contrib-coffee'
+    grunt.loadNpmTasks 'grunt-contrib-stylus'
     grunt.loadNpmTasks 'grunt-contrib-requirejs'
     grunt.loadNpmTasks 'grunt-contrib-watch'

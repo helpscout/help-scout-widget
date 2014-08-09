@@ -1,0 +1,141 @@
+@import 'nib'
+
+
+ns = 'hs-widget'
+icon-size = 40px
+form-width = 325px
+form-height = 325px
+brand-color = #4f9ae5
+radius = 4px
+
+// Placeholders.
+$no-outline
+    outline: none
+
+    &:active, &:focus
+        outline: none
+
+
+.{ns}
+    display: block
+    font-family: 'Proxima Nova', Helvetica Neue, Helvetica, sans-serif
+    font-size: 14px
+    line-height: 1
+    position: fixed
+    bottom: 10px
+    right: 12px
+    height: icon-size
+    width: icon-size
+    text-align: center
+
+    *
+        box-sizing: border-box
+
+    h4
+        margin: 0 0 0.5em
+        font-size: 150%
+        font-weight: 200
+
+    p
+        font-size: 100%
+        font-weight: normal
+        margin: 0 0 1em
+        color: #888
+        line-height: 1.3
+
+
+.{ns}-icon
+    display: inline-block
+    font-size: icon-size * 0.8
+    line-height: icon-size + 2
+    width: icon-size
+    height: icon-size
+    border-radius: 50%
+    background: brand-color
+    color: white
+    cursor: pointer
+    opacity: 0.4
+    transition: opacity 0.3s ease-out
+    user-select: none
+
+    &:hover, &:focus, .{ns}-active &
+        opacity: 1
+
+.{ns}-form-container
+    display: none
+    position: relative
+    width: form-width
+    height: form-height
+    bottom: form-height + icon-size + 10px
+    right: form-width - icon-size
+    border: 1px solid #eee
+    border-radius: radius
+    box-shadow: 0 0 2px alpha(brand-color, 0.2)
+
+    .{ns}-active &
+        display: block
+
+.{ns}-btns
+    text-align: right
+    width: 100%
+    position: absolute
+    bottom: 0
+    left: 0
+    padding: 1em
+    background: #f8f8f8
+    border-top: 1px solid #eee
+
+.{ns}-form, .{ns}-form-success
+    height: 100%
+    padding: 1em
+
+.{ns}-form-success
+    display: none
+
+.{ns}-form-success-active
+    .{ns}-form
+        display: none
+
+    .{ns}-form-success
+        display: block
+
+
+.{ns}-form-control
+    @extend $no-outline
+    font-size: 100%
+    border: 1px solid #eee
+    border-radius: radius
+    width: 100%
+    padding: 0.5em
+    resize: none
+    margin: 0 0 0.8em
+    transition: border-color 0.2s ease-out
+    font-family: inherit
+
+    &:hover, &:focus
+        border-color: brand-color
+
+textarea.{ns}-form-control
+    height: 130px
+    line-height: 1.4
+
+.{ns}-btn
+    @extend $no-outline
+    background-color: brand-color
+    color: white
+    font: inherit
+    border: none
+    font-weight: 400
+    font-size: 110%
+    line-height: 1.3
+    padding: 0.3em 1em
+    vertical-align: baseline
+    text-align: center
+    display: inline-block
+    cursor: pointer
+    border-radius: 1em
+    transition: background-color 0.2s ease-out
+    user-select: none
+
+    &:hover, &:focus
+        background-color: darken(brand-color, 10%)
