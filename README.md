@@ -4,7 +4,7 @@ Finally.
 
 ### What is this?
 
-Love Help Scout but wish they had an in-app feedback widget? Yeah, me too.
+Love [Help Scout](http://www.helpscout.net/) but wish they had an in-app feedback widget? Yeah, me too.
 
 This is the in-app feedback widget you always wanted for Help Scout. Just give it your credentials and initialize it on your site. No dependencies (yet), and fully extensible.
 
