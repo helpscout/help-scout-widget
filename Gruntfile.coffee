@@ -22,15 +22,20 @@ module.exports = (grunt) ->
             options:
                 baseUrl: './build'
                 include: 'main'
-                name: '../almond'
+                optimize: 'none'
+                wrap:
+                    startFile: './lib/start.frag',
+                    endFile: './lib/end.frag'
 
-            compile:
+            standalone:
                 options:
-                    optimize: 'none'
+                    name: '../almond'
                     out: './helpscout.js'
-                    wrap:
-                        startFile: './lib/start.frag',
-                        endFile: './lib/end.frag'
+
+            amd:
+                options:
+                    out: './helpscout-amd.js'
+
         watch:
             coffee:
                 files: '<%= coffee.compile.src %>'
