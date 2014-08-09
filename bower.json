@@ -5,7 +5,10 @@
   "authors": [
     "Jonathan Kim <me@jonathan-kim.com>"
   ],
-  "main": "helpscout.js",
+  "main": [
+    "helpscout.js",
+    "helpscout.css"
+  ],
   "moduleType": [
     "amd",
     "globals"
