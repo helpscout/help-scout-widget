@@ -4,31 +4,25 @@ define [
 ], (HelpScout, WidgetView) ->
 
     class Interface
-        constructor: (options={}) ->
-            {apiKey} = options
-
-            # TODO: Use revealing constructor pattern to avoid people messing with this.
-            # http://domenic.me/2014/02/13/the-revealing-constructor-pattern/
-            @api = new HelpScout {apiKey}
+        constructor: (options) ->
+            api = new HelpScout options
 
             # NOTE: A future use would be to let this instance manage multiple
             # widgets on the page that all talk to the API with the same @apiKey.
-            @views = []
+            views = []
 
-            return @
+            # Allow initialization on elements.
+            init = (options) ->
+                view = new WidgetView(options)
 
-        # Allow initialization on elements.
-        init: (options) ->
-            view = new WidgetView(options)
+                # TODO: Implement custom events emitter.
+                view.onSubmit = (data) ->
+                    api.create
+                        mailboxId: options.mailboxId
+                        customer: {email: data.email}
+                        body: data.body
 
-            # TODO: Implement custom events emitter.
-            onSubmit = (data) ->
-                @api.create
-                    mailboxId: options.mailboxId
-                    customer: {email: data.email}
-                    body: data.body
+                views.push view
+                return view
 
-            view.onSubmit = onSubmit.bind @
-
-            @views.push view
-            return view
+            return {init, views}

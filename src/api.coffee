@@ -1,17 +1,23 @@
-define ->
+define [
+    'utils'
+], (utils) ->
+
     class HelpScoutAPI
         constructor: (options={}) ->
-            {@apiKey} = options
-            unless @apiKey
+            {apiKey} = options
+            unless apiKey
                 throw new Error('Bro, gimme an API key. Just do it. Do it.')
                 return
 
             console.warn 'BTW this is really not secure. Hopefully Help Scout comes out with API scoping.'
 
             # Build this and cache it. For speed and shit.
-            @base64AuthKey = btoa(@apiKey + ':X')
+            @base64AuthKey = btoa(apiKey + ':X')
 
-            return @
+            # Extend with options.
+            utils.extend @, options
+
+            return
 
         urlRoot: 'https://api.helpscout.net'
         version: 'v1'
@@ -39,12 +45,21 @@ define ->
             return options unless options
 
             return {
-                url: [@urlRoot, @version, "#{options.resource}.json"].join '/'
+                url: @getUrl(options.resource)
                 type: options.method
+                dataType: 'json'
                 data: options.data
                 headers:
                     Authorization: 'Basic ' + @base64AuthKey
             }
+
+        getUrl: (resource) ->
+            validParts = []
+            r = if resource then "#{resource}.json" else ''
+            for part in [@urlRoot, @version, r]
+                validParts.push(part) if part
+
+            return validParts.join '/'
 
         # Feel free to override with your own request library.
         _request: jQuery?.ajax or ->

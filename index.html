@@ -11,17 +11,15 @@
     <script type="text/javascript" src="./helpscout.js"></script>
     <script type="text/javascript">
         var widget = new HelpScout({
-            apiKey: 'foo'
+            apiKey: 'foo',
+            getUrl: function() {
+                return 'http://localhost:5000/feedback';
+            }
         });
 
-        widget.init({
+        var x = widget.init({
             position: 'bottom-right',
-            mailboxId: 'a'
-        });
-
-        widget.init({
-            position: 'bottom-right',
-            mailboxId: 'b'
+            mailboxId: 27946
         });
     </script>
 </body>

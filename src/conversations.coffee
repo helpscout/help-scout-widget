@@ -1,6 +1,7 @@
 define [
     'api'
-], (HelpScoutAPI) ->
+    'utils'
+], (HelpScoutAPI, utils) ->
 
     class ConversationsAPI extends HelpScoutAPI
         create: (options) ->
@@ -12,20 +13,22 @@ define [
             if subject.length > maxSubjectLen
                 subject = body.substring(0, maxSubjectLen-3) + '...'
 
-            options =
-                customer: customer
-                subject: body.substring(0, 50) + '...'
-                threads: [
-                    type: 'customer'
-                    createdBy: customer
-                    body: body
-                ]
-
-            @request options
+            @request {
+                method: 'post'
+                data:
+                    customer: customer
+                    subject: body.substring(0, 50) + '...'
+                    mailbox:
+                        id: mailboxId
+                    threads: [
+                        type: 'customer'
+                        createdBy: utils.extend({type: 'customer'}, customer)
+                        body: body
+                    ]
+            }
 
         request: (options) ->
             if options?
                 options.resource ?= 'conversations'
-                options.type = 'jsonp'
 
             super options
