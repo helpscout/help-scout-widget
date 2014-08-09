@@ -4,14 +4,19 @@ module.exports = (grunt) ->
 
     grunt.initConfig
         coffee:
-            options:
-                bare: true
             compile:
+                bare: true
                 expand: true
                 flatten: true
-                src: './src/*.coffee'
+                src: './src/**/*.coffee'
                 dest: './build'
                 ext: '.js'
+
+        stylus:
+            compile:
+                expand: false
+                src: './src/**/*.styl'
+                dest: './helpscout.css'
 
         requirejs:
             options:
