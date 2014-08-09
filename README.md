@@ -16,21 +16,24 @@ Grab the `helpscout.js` file and add that to your site:
   
 Initialize it with your API key:
 
-  var scout = new HelpScout({
-    apiKey: 'abcd1234'
-  });
+    var scout = new HelpScout({
+      apiKey: 'abcd1234'
+    });
   
+
 Great job! Now you can use that scout instance to add feedback widgets to your site, like so:
 
-  var supportWidget = scout.init({
-    mailboxId: 5488,  // sends to your support mailbox.
-    position: 'top-left'
-  });
-  
-  var luciferWidget = scout.init({
-    mailboxId: 666,  // sends to your lucifer mailbox.
-    position: 'bottom-right'
-  });
+```javascript
+var supportWidget = scout.init({
+  mailboxId: 5488,  // sends to your support mailbox.
+  position: 'top-left'
+});
+
+var luciferWidget = scout.init({
+  mailboxId: 666,  // sends to your lucifer mailbox.
+  position: 'bottom-right'
+});
+```
 
 They'll all use the same API key, but different chat bubbles will show up on the page which route to differen mailboxes. To be honest, there probably isn't much practical use for that yet, but soon!
 
