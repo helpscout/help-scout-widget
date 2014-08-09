@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Help Scout Feedback Widget</title>
+</head>
+<body>
+
+    <h1>Hello :]</h1>
+
+    <script type="text/javascript" src='http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js'></script>
+    <script type="text/javascript" src="./helpscout.js"></script>
+    <script type="text/javascript">
+        var widget = new HelpScout({
+            apiKey: 'foo'
+        });
+
+        widget.init({
+            position: 'bottom-right',
+            mailboxId: 'a'
+        });
+
+        widget.init({
+            position: 'bottom-right',
+            mailboxId: 'b'
+        });
+    </script>
+</body>
+</html>

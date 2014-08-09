@@ -1,0 +1,23 @@
+{
+  "name": "help-scout-widget",
+  "description": "",
+  "version": "0.0.0",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "echo 'Probs needs some tests'"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://mit-license.org"
+    }
+  ],
+  "devDependencies": {
+    "grunt-contrib-coffee": "~0.11.0",
+    "grunt": "~0.4.5",
+    "grunt-contrib-requirejs": "~0.4.4",
+    "grunt-contrib-watch": "~0.6.1"
+  }
+}
