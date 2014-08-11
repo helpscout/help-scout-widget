@@ -13,13 +13,13 @@ This is the in-app feedback widget you always wanted for Help Scout. Just give i
 Grab the `helpscout.js` file and add that to your site:
 
   <script src="./helpscout.js"></script>
-  
+
 Initialize it with your API key:
 
     var scout = new HelpScout({
       apiKey: 'abcd1234'
     });
-  
+
 
 Great job! Now you can use that scout instance to add feedback widgets to your site, like so:
 
@@ -41,3 +41,10 @@ They'll all use the same API key, but different chat bubbles will show up on the
 ### API
 
 Coming soon :]
+
+
+### Screenshots
+
+![Widget opened](https://dl.dropbox.com/s/1ewnxonl9tpstqj/Screenshot%202014-08-11%2013.21.36.png)
+
+![Widget success](https://dl.dropbox.com/s/tv4ux56y5mqvvct/Screenshot%202014-08-11%2013.21.56.png)
