@@ -11,18 +11,28 @@ define ->
 
     class WidgetView
         constructor: ->
-            @el = document.createElement 'div'
-            @el.classList.add 'hs-widget'
-            @el.innerHTML = @template
-            document.body.appendChild @el
-
             # Give this guy a unique ID.
             @id = 'v' + viewCounter
             viewCounter++
 
+            @el = document.createElement 'div'
+            @el.classList.add 'hs-widget'
+            @render()
+            document.body.appendChild @el
+
+            return @
+
+        render: ->
+            @el.classList.remove 'hs-widget-active'
+            @el.classList.remove 'hs-widget-form-success-active'
+            @el.innerHTML = @template
+
             # Listen for clicks.
             @el.querySelector('.hs-widget-icon')
                 .addEventListener 'click', @toggle.bind(@)
+
+            @el.querySelector('.hs-widget-close')
+                .addEventListener 'click', @render.bind(@)
 
             # Listen for form submissions and make those ajaxy.
             @el.querySelector('.hs-widget-form')
@@ -46,6 +56,7 @@ define ->
                     <br><br><br><br>
                     <h4>We've got you covered.</h4>
                     <p>One of us will reach out to you by email or phone shortly. Just hang tight!</p>
+                    <button class="hs-widget-btn hs-widget-close">Got it!</button>
                 </div>
             </div>
         """

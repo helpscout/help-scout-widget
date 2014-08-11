@@ -183,18 +183,26 @@
     };
     return WidgetView = (function() {
       function WidgetView() {
-        this.el = document.createElement('div');
-        this.el.classList.add('hs-widget');
-        this.el.innerHTML = this.template;
-        document.body.appendChild(this.el);
         this.id = 'v' + viewCounter;
         viewCounter++;
-        this.el.querySelector('.hs-widget-icon').addEventListener('click', this.toggle.bind(this));
-        this.el.querySelector('.hs-widget-form').addEventListener('submit', this.submit.bind(this));
+        this.el = document.createElement('div');
+        this.el.classList.add('hs-widget');
+        this.render();
+        document.body.appendChild(this.el);
         return this;
       }
 
-      WidgetView.prototype.template = "<div class=\"hs-widget-icon\">?</div>\n<div class=\"hs-widget-form-container\">\n    <form class=\"hs-widget-form\">\n        <h4>Send us a message</h4>\n        <p>We love hearing from you.</p>\n        <input class=\"hs-widget-form-control\" type=\"email\" name=\"email\" value=\"\" placeholder=\"Your email\" required autofocus/>\n        <textarea class=\"hs-widget-form-control\" name=\"body\" placeholder=\"Hey there! I need help with...\" required></textarea>\n        <div class=\"hs-widget-btns\">\n            <button class=\"hs-widget-btn\" type=\"submit\">Let us know</button>\n        </div>\n    </form>\n    <div class=\"hs-widget-form-success\">\n        <br><br><br><br>\n        <h4>We've got you covered.</h4>\n        <p>One of us will reach out to you by email or phone shortly. Just hang tight!</p>\n    </div>\n</div>";
+      WidgetView.prototype.render = function() {
+        this.el.classList.remove('hs-widget-active');
+        this.el.classList.remove('hs-widget-form-success-active');
+        this.el.innerHTML = this.template;
+        this.el.querySelector('.hs-widget-icon').addEventListener('click', this.toggle.bind(this));
+        this.el.querySelector('.hs-widget-close').addEventListener('click', this.render.bind(this));
+        this.el.querySelector('.hs-widget-form').addEventListener('submit', this.submit.bind(this));
+        return this;
+      };
+
+      WidgetView.prototype.template = "<div class=\"hs-widget-icon\">?</div>\n<div class=\"hs-widget-form-container\">\n    <form class=\"hs-widget-form\">\n        <h4>Send us a message</h4>\n        <p>We love hearing from you.</p>\n        <input class=\"hs-widget-form-control\" type=\"email\" name=\"email\" value=\"\" placeholder=\"Your email\" required autofocus/>\n        <textarea class=\"hs-widget-form-control\" name=\"body\" placeholder=\"Hey there! I need help with...\" required></textarea>\n        <div class=\"hs-widget-btns\">\n            <button class=\"hs-widget-btn\" type=\"submit\">Let us know</button>\n        </div>\n    </form>\n    <div class=\"hs-widget-form-success\">\n        <br><br><br><br>\n        <h4>We've got you covered.</h4>\n        <p>One of us will reach out to you by email or phone shortly. Just hang tight!</p>\n        <button class=\"hs-widget-btn hs-widget-close\">Got it!</button>\n    </div>\n</div>";
 
       WidgetView.prototype.toggle = function() {
         if (this.el.classList.contains('hs-widget-active')) {
