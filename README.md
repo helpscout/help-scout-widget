@@ -14,14 +14,21 @@ Grab the `helpscout.js` file and add that to your site:
 
   <script src="./helpscout.js"></script>
 
-Initialize it with your API key:
+Initialize it with a fake API key and url root:
 
+    /**
+     * At the moment, Help Scout doesn't allow client-side API requests, so you'll need
+     * to create an API proxy that can make requests on your behalf using your private
+     * API key.
+     */
     var scout = new HelpScout({
-      apiKey: 'abcd1234'
+      apiKey: 'foo',
+      getUrl: function() {
+        return 'http://my-helpscout-proxy.com/feedback';
+      }
     });
 
-
-Great job! Now you can use that scout instance to add feedback widgets to your site, like so:
+Great job! Now you can use that `scout` instance to add feedback widgets to your site, like so:
 
 ```javascript
 var supportWidget = scout.init({
@@ -35,12 +42,30 @@ var luciferWidget = scout.init({
 });
 ```
 
-They'll all use the same API key, but different chat bubbles will show up on the page which route to differen mailboxes. To be honest, there probably isn't much practical use for that yet, but soon!
+They'll all use the same API key, but different chat bubbles will show up on the page which route to different mailboxes. To be honest, there probably isn't much practical use for that yet, but soon!
 
 
 ### API
 
-Coming soon :]
+#### Scout Instance
+**init  scout.init(options)**
+Creates and returns a new widget instance with the given options.
+
+#### Widget Instance
+**render  widget.render()**
+Manually rerender the widget to it's original state.
+
+**show  widget.show()**
+Manually open the widget.
+
+**hide  widget.hide()**
+Manually close the widget.
+
+**remove  widget.remove()**
+Remove the widget from the DOM.
+
+
+More coming soon :]
 
 
 ### Screenshots
