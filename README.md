@@ -70,6 +70,6 @@ More coming soon :]
 
 ### Screenshots
 
-![Widget opened](https://dl.dropbox.com/s/1ewnxonl9tpstqj/Screenshot%202014-08-11%2013.21.36.png)
+![Widget opened](https://dl.dropboxusercontent.com/s/smci4bi1bb5un7b/help%20scout%20widget%20front.png)
 
-![Widget success](https://dl.dropbox.com/s/tv4ux56y5mqvvct/Screenshot%202014-08-11%2013.21.56.png)
+![Widget success](https://dl.dropboxusercontent.com/s/smci4bi1bb5un7b/help%20scout%20widget%20back.png)
