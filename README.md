@@ -69,7 +69,7 @@ Remove the widget from the DOM.
 
 Help Scout does not currently support cross origin JavaScript requests. This widget will instead make a request to a small proxy script on your own server that will then send the request to the Help Scout API. This project includes two sample proxy scripts in the [php][php] and [rails][rails] folders. Please see the README.md in those folders for instructions.
 
-_Please note that for the moment, the apiKey set in the JavaScript file is __not used__ by the proxies. These proxies keep the key isolated to the server, and can be set in those files._
+_Please note that for the moment, the apiKey set in the JavaScript file is **not used** by the proxies. These proxies keep the key isolated to the server, and can be set in those files._
 
 
 More coming soon :]

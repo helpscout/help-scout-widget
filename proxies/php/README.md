@@ -7,7 +7,7 @@ A proxy to support https://github.com/appcues/help-scout-widget
 
 ### Configure the Proxy
 
-1. This does require php-curl to be available in your php installation.
+1. This requires `php-curl` to be available in your php installation.
 2. Copy `proxy.php` and `config.php` from this folder to your server.
 3. Login to Help Scout and choose __Your Profile__ from the top right of the site
 4. Choose __Api Keys__ and generate a new key named 'Proxy API Key'
