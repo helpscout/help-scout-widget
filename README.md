@@ -16,17 +16,19 @@ Grab the `helpscout.js` file and add that to your site:
 
 Initialize it with a fake API key and url root:
 
-    /**
-     * At the moment, Help Scout doesn't allow client-side API requests, so you'll need
-     * to create an API proxy that can make requests on your behalf using your private
-     * API key.
-     */
-    var scout = new HelpScout({
-      apiKey: 'foo',
-      getUrl: function() {
-        return 'http://my-helpscout-proxy.com/feedback';
-      }
-    });
+```javascript
+/**
+ * At the moment, Help Scout doesn't allow client-side API requests, so you'll need
+ * to create an API proxy that can make requests on your behalf using your private
+ * API key.
+ */
+var scout = new HelpScout({
+  apiKey: 'foo',
+  getUrl: function() {
+    return 'http://my-helpscout-proxy.com/feedback';
+  }
+});
+```
 
 Great job! Now you can use that `scout` instance to add feedback widgets to your site, like so:
 
@@ -43,7 +45,6 @@ var luciferWidget = scout.init({
 ```
 
 They'll all use the same API key, but different chat bubbles will show up on the page which route to different mailboxes. To be honest, there probably isn't much practical use for that yet, but soon!
-
 
 ### API
 
@@ -64,6 +65,12 @@ Manually close the widget.
 **remove  widget.remove()**
 Remove the widget from the DOM.
 
+### Proxies
+
+Help Scout does not currently support cross origin JavaScript requests. This widget will instead make a request to a small proxy script on your own server that will then send the request to the Help Scout API. This project includes two sample proxy scripts in the [php][php] and [rails][rails] folders. Please see the README.md in those folders for instructions.
+
+_Please note that for the moment, the apiKey set in the JavaScript file is __not used__ by the proxies. These proxies keep the key isolated to the server, and can be set in those files._
+
 
 More coming soon :]
 
@@ -73,3 +80,7 @@ More coming soon :]
 ![Widget opened](https://dl.dropbox.com/s/czxn3dtxrl68wwk/help%20scout%20widget%20front.png)
 
 ![Widget success](https://dl.dropboxusercontent.com/s/smci4bi1bb5un7b/help%20scout%20widget%20back.png)
+
+
+[php]: https://github.com/appcues/help-scout-widget/tree/master/proxies/php
+[rails]: https://github.com/appcues/help-scout-widget/tree/master/proxies/rails
