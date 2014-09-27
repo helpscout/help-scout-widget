@@ -10,13 +10,14 @@ define ->
         return data
 
     class WidgetView
-        constructor: ->
+        constructor: (options={}) ->
             # Give this guy a unique ID.
             @id = 'v' + viewCounter
             viewCounter++
 
             @el = document.createElement 'div'
             @el.classList.add 'hs-widget'
+            @el.classList.add 'hs-position-' + options.position
             @render()
             document.body.appendChild @el
 

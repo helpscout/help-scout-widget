@@ -138,3 +138,33 @@ textarea.{ns}-form-control
 
     &:hover, &:focus
         background-color: darken(brand-color, 10%)
+
+// Support for widget positioning
+.{ns}
+    &.hs-position-top-right
+        top: 10px
+        right: 12px
+        .{ns}-form-container
+            top: 10px
+            right: form-width - icon-size
+
+    &.hs-position-top-left
+        top: 10px
+        left: 12px
+        .{ns}-form-container
+            top: 10px
+            left: 0
+
+    &.hs-position-bottom-right
+        bottom: 10px
+        right: 12px
+        .{ns}-form-container
+            bottom: form-height + icon-size + 10px
+            right: form-width - icon-size
+
+    &.hs-position-bottom-left
+        bottom: 10px
+        left: 12px
+        .{ns}-form-container
+            bottom: form-height + icon-size + 10px
+            left: 0
