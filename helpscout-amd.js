@@ -182,11 +182,15 @@
       return data;
     };
     return WidgetView = (function() {
-      function WidgetView() {
+      function WidgetView(options) {
+        if (options == null) {
+          options = {};
+        }
         this.id = 'v' + viewCounter;
         viewCounter++;
         this.el = document.createElement('div');
         this.el.classList.add('hs-widget');
+        this.el.classList.add('hs-position-' + options.position);
         this.render();
         document.body.appendChild(this.el);
         return this;
