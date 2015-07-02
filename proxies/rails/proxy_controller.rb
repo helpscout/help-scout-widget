@@ -25,7 +25,7 @@ class ProxyController < ApplicationController
 
     res = https.request(req)
 
-    render :status => res.code, :json => res.body.present? || {}
+    render :status => res.code, :json => res.body.presence || {}
   rescue => e
     render :status => :internal_server_error, :json => {"error" => "failed #{e}"}
   end
