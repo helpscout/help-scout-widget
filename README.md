@@ -1,12 +1,12 @@
 # Help Scout Feedback Widget
 
-Finally.
+> This project has been superseded by the embedded form that Help Scout now offers. Please see the new [Help Scout Beacon](http://www.helpscout.net/features/beacon/) for an easy to use embedded form. Please see [the developer documentation](http://developer.helpscout.net/beacons/) for more information.
+
+> This library can be considered deprecated and no longer in active development. However, if you've got a bug fix, we'll gladly accept a pull request.
 
 ### What is this?
 
-Love [Help Scout](http://www.helpscout.net/) but wish they had an in-app feedback widget? Yeah, me too.
-
-This is the in-app feedback widget you always wanted for Help Scout. Just give it your credentials and initialize it on your site. No dependencies (yet), and fully extensible.
+This is a self hosted in-app feedback widget for Help Scout. Just give it your credentials and initialize it on your site. No dependencies (yet), and fully extensible.
 
 ### Usage
 
