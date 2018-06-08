@@ -2,7 +2,7 @@
 
 > This project has been superseded by the embedded form that Help Scout now offers. Please see the new [Help Scout Beacon](http://www.helpscout.net/features/beacon/) for an easy to use embedded form. Please see [the developer documentation](http://developer.helpscout.net/beacons/) for more information.
 
-> This library can be considered deprecated and no longer in active development. However, if you've got a bug fix, we'll gladly accept a pull request.
+> This library is considered deprecated and no longer in active development. We’ll be officially switching off the Mailbox API 1.0 that this widget uses on June 6th, 2019.
 
 ### What is this?
 
